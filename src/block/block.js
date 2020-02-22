@@ -12,6 +12,7 @@ import { InnerBlocks } from '@wordpress/block-editor';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
+const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
 
 /**
  * Register: aa Gutenberg Block.
@@ -52,7 +53,9 @@ registerBlockType( 'cgb/block-wtp-plugin-chuck', {
 		// Creates a <p class='wp-block-cgb-block-wtp-plugin-chuck'></p>.
 		return (
 			<div className={ props.className }>
-				<InnerBlocks />
+				<InnerBlocks
+				    allowedBlocks={ ALLOWED_BLOCKS }
+				/>
 			</div>
 		);
 	},
