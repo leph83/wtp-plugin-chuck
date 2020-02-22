@@ -11,3 +11,4 @@
 
 import './chuck/block.js';
 import './silvester/block.js';
+import './bruce/block.js';

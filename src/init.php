@@ -38,6 +38,9 @@ function wtp_render_callback_2( $attributes, $innerblocks ){
     return '<div class="block__media">' . $innerblocks . '</div>';
 }
 
+function wtp_render_callback_3( $attributes, $innerblocks ){
+    return '<div class="block__content">' . $innerblocks . '</div>';
+}
 
 function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 	// Register block styles for both frontend + backend.
@@ -109,6 +112,19 @@ function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 			'editor_style'  => 'wtp_plugin_silvester-cgb-block-editor-css',
 			// Render Callback
 			'render_callback' => 'wtp_render_callback_2',
+		)
+	);
+
+	register_block_type(
+		'cgb/block-wtp-plugin-bruce', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'wtp_plugin_bruce-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'wtp_plugin_bruce-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'wtp_plugin_bruce-cgb-block-editor-css',
+			// Render Callback
+			'render_callback' => 'wtp_render_callback_3',
 		)
 	);
 }

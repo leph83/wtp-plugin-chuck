@@ -30,3 +30,19 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: red; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.wp-block-cgb-block-wtp-plugin-chuck .editor-block-list__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: red; }
