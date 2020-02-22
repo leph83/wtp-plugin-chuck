@@ -59,6 +59,7 @@ registerBlockType( 'cgb/block-wtp-plugin-chuck', {
 			<div className={ props.className }>
 				<InnerBlocks
 					template={ TEMPLATE }
+					allowedBlocks={ ALLOWED_BLOCKS }
 				/>
 			</div>
 		);
