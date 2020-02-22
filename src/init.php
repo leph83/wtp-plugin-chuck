@@ -31,19 +31,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Output
 function wtp_render_callback( $attributes, $innerblocks ){
-    return '<div style="background: green;">' . $innerblocks . '</div>';
+    return '<div class="wp-block-cgb-block-wtp-plugin-chuck-frontend">' . $innerblocks . '</div>';
 }
 
 
 
 function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 	// Register block styles for both frontend + backend.
-	// wp_register_style(
-	// 	'wtp_plugin_chuck-cgb-style-css', // Handle.
-	// 	plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
-	// 	is_admin() ? array( 'wp-editor' ) : null, // Dependency to include the CSS after it.
-	// 	null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
-	// );
+	wp_register_style(
+		'wtp_plugin_chuck-cgb-style-css', // Handle.
+		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
+		is_admin() ? array( 'wp-editor' ) : null, // Dependency to include the CSS after it.
+		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
+	);
 
 	// Register block editor script for backend.
 	wp_register_script(
@@ -55,12 +55,12 @@ function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 	);
 
 	// Register block editor styles for backend.
-	// wp_register_style(
-	// 	'wtp_plugin_chuck-cgb-block-editor-css', // Handle.
-	// 	plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
-	// 	array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
-	// 	null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
-	// );
+	wp_register_style(
+		'wtp_plugin_chuck-cgb-block-editor-css', // Handle.
+		plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
+		array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
+		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
+	);
 
 	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.
 	wp_localize_script(
@@ -86,11 +86,11 @@ function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 	register_block_type(
 		'cgb/block-wtp-plugin-chuck', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
-			// 'style'         => 'wtp_plugin_chuck-cgb-style-css',
+			'style'         => 'wtp_plugin_chuck-cgb-style-css',
 			// Enqueue blocks.build.js in the editor only.
 			'editor_script' => 'wtp_plugin_chuck-cgb-block-js',
 			// Enqueue blocks.editor.build.css in the editor only.
-			// 'editor_style'  => 'wtp_plugin_chuck-cgb-block-editor-css',
+			'editor_style'  => 'wtp_plugin_chuck-cgb-block-editor-css',
 			// Render Callback
 			'render_callback' => 'wtp_render_callback',
 		)

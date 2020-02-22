@@ -5,11 +5,9 @@
  * which makes it higher in priority.
  */
 
-.wp-block-cgb-block-wtp-plugin-chuck  {
-  background: $green;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+.wp-block-cgb-block-wtp-plugin-chuck .editor-block-list__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: red;
 }

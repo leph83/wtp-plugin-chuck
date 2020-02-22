@@ -10,10 +10,7 @@
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
-.wp-block-cgb-block-wtp-plugin-chuck {
-  background: #bada55;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
+.wp-block-cgb-block-wtp-plugin-chuck .editor-block-list__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: red; }
