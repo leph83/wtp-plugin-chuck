@@ -31,9 +31,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Output
 function wtp_render_callback( $attributes, $innerblocks ){
-    return '<div class="wp-block-cgb-block-wtp-plugin-chuck-frontend">' . $innerblocks . '</div>';
+    return '<div class="block">' . $innerblocks . '</div>';
 }
 
+function wtp_render_callback_2( $attributes, $innerblocks ){
+    return '<div class="block__media">' . $innerblocks . '</div>';
+}
 
 
 function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
@@ -93,6 +96,19 @@ function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 			'editor_style'  => 'wtp_plugin_chuck-cgb-block-editor-css',
 			// Render Callback
 			'render_callback' => 'wtp_render_callback',
+		)
+	);
+
+	register_block_type(
+		'cgb/block-wtp-plugin-silvester', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'wtp_plugin_silvester-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'wtp_plugin_silvester-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'wtp_plugin_silvester-cgb-block-editor-css',
+			// Render Callback
+			'render_callback' => 'wtp_render_callback_2',
 		)
 	);
 }
