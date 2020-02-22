@@ -52,7 +52,7 @@ registerBlockType( 'cgb/block-wtp-plugin-chuck', {
 		// Creates a <p class='wp-block-cgb-block-wtp-plugin-chuck'></p>.
 		return (
 			<div className={ props.className }>
-				
+				<InnerBlocks />
 			</div>
 		);
 	},
