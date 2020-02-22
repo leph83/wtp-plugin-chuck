@@ -14,6 +14,10 @@ const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
 
+const TEMPLATE = [ 
+	[ 'core/paragraph', { placeholder: 'Enter side content...' } ]
+];
+
 /**
  * Register: aa Gutenberg Block.
  *
@@ -54,7 +58,7 @@ registerBlockType( 'cgb/block-wtp-plugin-chuck', {
 		return (
 			<div className={ props.className }>
 				<InnerBlocks
-				    allowedBlocks={ ALLOWED_BLOCKS }
+					template={ TEMPLATE }
 				/>
 			</div>
 		);
