@@ -27,6 +27,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @uses {wp-editor} for WP editor styles.
  * @since 1.0.0
  */
+
+
+// OUTPUT
+function wtp_render_callback( $attributes, $innerblocks ){
+    return $innerblocks;
+}
+
 function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 	// Register block styles for both frontend + backend.
 	wp_register_style(
@@ -82,9 +89,13 @@ function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 			'editor_script' => 'wtp_plugin_chuck-cgb-block-js',
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'wtp_plugin_chuck-cgb-block-editor-css',
+			// Render Callback
+			'render_callback' => 'wtp_render_callback',
 		)
 	);
 }
+
+
 
 // Hook: Block assets.
 add_action( 'init', 'wtp_plugin_chuck_cgb_block_assets' );
