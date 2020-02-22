@@ -15,8 +15,7 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
 const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
 
 const TEMPLATE = [ 
-	[ 'core/paragraph', { placeholder: 'Enter side content...' } ],
-	[ 'core/image' ]
+	[ 'core/paragraph', { placeholder: 'Enter side content...' } ]
 ];
 
 /**

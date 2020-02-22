@@ -34,11 +34,11 @@ function wtp_render_callback( $attributes, $innerblocks ){
     return '<div class="block">' . $innerblocks . '</div>';
 }
 
-function wtp_render_callback_2( $attributes, $innerblocks ){
+function wtp_render_callback_media( $attributes, $innerblocks ){
     return '<div class="block__media">' . $innerblocks . '</div>';
 }
 
-function wtp_render_callback_3( $attributes, $innerblocks ){
+function wtp_render_callback_content( $attributes, $innerblocks ){
     return '<div class="block__content">' . $innerblocks . '</div>';
 }
 
@@ -111,7 +111,7 @@ function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'wtp_plugin_silvester-cgb-block-editor-css',
 			// Render Callback
-			'render_callback' => 'wtp_render_callback_2',
+			'render_callback' => 'wtp_render_callback_media',
 		)
 	);
 
@@ -124,7 +124,7 @@ function wtp_plugin_chuck_cgb_block_assets() { // phpcs:ignore
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'wtp_plugin_bruce-cgb-block-editor-css',
 			// Render Callback
-			'render_callback' => 'wtp_render_callback_3',
+			'render_callback' => 'wtp_render_callback_content',
 		)
 	);
 }
