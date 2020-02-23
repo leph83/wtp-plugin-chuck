@@ -5,7 +5,8 @@
  * which makes it higher in priority.
  */
 
-.wp-block-cgb-block-wtp-plugin-chuck .editor-block-list__layout {
+.wp-block-cgb-block-wtp-plugin-block > .editor-inner-blocks > .editor-block-list__layout, 
+.block {
   display: grid;
   grid-template-columns: 1fr 1fr;
 

@@ -1,5 +1,5 @@
 /**
- * BLOCK: wtp-plugin-bruce
+ * BLOCK: wtp-plugin-block-content
  *
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
@@ -31,16 +31,17 @@ const TEMPLATE = [
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'cgb/block-wtp-plugin-bruce', {
+registerBlockType( 'cgb/block-wtp-plugin-block-content', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'wtp-plugin-bruce - CGB Block' ), // Block title.
+	title: __( 'wtp-plugin-block-content - CGB Block' ), // Block title.
 	icon: 'shield', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'wtp-plugin-bruce — CGB Block' ),
+		__( 'wtp-plugin-block-content — CGB Block' ),
 		__( 'CGB Example' ),
 		__( 'create-guten-block' ),
 	],
+	parent: ['cgb/block-wtp-plugin-block'],
 
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.
@@ -54,7 +55,7 @@ registerBlockType( 'cgb/block-wtp-plugin-bruce', {
 	 * @returns {Mixed} JSX Component.
 	 */
 	edit: ( props ) => {
-		// Creates a <p class='wp-block-cgb-block-wtp-plugin-bruce'></p>.
+		// Creates a <p class='wp-block-cgb-block-wtp-plugin-block-content'></p>.
 		return (
 			<div className={ props.className }>
 				<InnerBlocks
