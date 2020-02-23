@@ -61,6 +61,7 @@ registerBlockType( 'cgb/block-wtp-plugin-block-media', {
 				<InnerBlocks
 					template={ TEMPLATE }
 					allowedBlocks={ ALLOWED_BLOCKS }
+					templateLock={false}
 				/>
 			</div>
 		);

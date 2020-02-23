@@ -60,6 +60,7 @@ registerBlockType( 'cgb/block-wtp-plugin-block', {
 			<div className={ props.className }>
 				<InnerBlocks
 					template={ TEMPLATE }
+					templateLock='all'
 					// allowedBlocks={ ALLOWED_BLOCKS }
 				/>
 			</div>
