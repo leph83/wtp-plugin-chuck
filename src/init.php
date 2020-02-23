@@ -86,6 +86,8 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 	 * scripts and styles for both frontend and backend are
 	 * enqueued when the editor loads.
 	 *
+	 * you can override this in the theme to remove styles by just copying the register_block_type
+	 *
 	 * @link https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type#enqueuing-block-scripts
 	 * @since 1.16.0
 	 */
