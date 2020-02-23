@@ -31,7 +31,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Output
 function wtp_render_callback( $attributes, $innerblocks ){
-    return '<div class="block">' . $innerblocks . '</div>';
+	$class = $attributes['className'] ?? false;
+    return '<div class="block  '.$class.'">' . $innerblocks . '</div>';
 }
 
 function wtp_render_callback_media( $attributes, $innerblocks ){
