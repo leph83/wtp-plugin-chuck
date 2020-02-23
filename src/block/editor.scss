@@ -5,17 +5,17 @@
  * which makes it higher in priority.
  */
 
-.wp-block-cgb-block-wtp-plugin-block > .editor-inner-blocks > .editor-block-list__layout {
-  display: grid;
-  // grid-template-columns: 1fr 1fr;
-  // align-items: center;
+// .wp-block-cgb-block-wtp-plugin-block > .editor-inner-blocks > .editor-block-list__layout {
+//   display: grid;
+//   // grid-template-columns: 1fr 1fr;
+//   // align-items: center;
 
-  grid-gap: 3rem;
+//   grid-gap: 3rem;
 
-  background: red;
-}
+//   background: red;
+// }
 
-.wp-block-cgb-block-wtp-plugin-block > .editor-inner-blocks > .editor-block-list__layout > * {
-    grid-column: -1 / 1;
-    grid-row: -1 / 1;
-}
+// .wp-block-cgb-block-wtp-plugin-block > .editor-inner-blocks > .editor-block-list__layout > * {
+//     grid-column: -1 / 1;
+//     grid-row: -1 / 1;
+// } 

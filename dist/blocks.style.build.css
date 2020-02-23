@@ -24,10 +24,6 @@
  *
  * CSS for both Frontend+Backend.
  */
-.wp-block-cgb-block-wtp-plugin-chuck-frontend {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: green; }
 /**
  * #.# Common SCSS
  *
@@ -39,7 +35,3 @@
  *
  * CSS for both Frontend+Backend.
  */
-.wp-block-cgb-block-wtp-plugin-chuck-frontend {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: green; }
