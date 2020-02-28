@@ -15,9 +15,21 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
 const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
 
 const TEMPLATE = [ 
-	[ 'cgb/block-wtp-plugin-block-media' ],
-	[ 'cgb/block-wtp-plugin-block-content' ],
+	[ 
+		'cgb/block-wtp-plugin-block-media', {}, [
+			[ 'core/image' ]
+		]
+	],
+	[ 
+		'cgb/block-wtp-plugin-block-content', {}, [
+			[ 'core/heading', { placeholder: 'This is the title' } ],
+			[ 'core/paragraph', { placeholder: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr...' } ],
+			[ 'core/button' ],
+	]
+	],
 ];
+
+
 
 /**
  * Register: aa Gutenberg Block.
