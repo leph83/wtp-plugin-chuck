@@ -36,11 +36,11 @@ function wtp_render_callback( $attributes, $innerblocks ){
 }
 
 function wtp_render_callback_media( $attributes, $innerblocks ){
-    return '<div class="block-media">' . $innerblocks . '</div>';
+    return '<div class="block__media">' . $innerblocks . '</div>';
 }
 
 function wtp_render_callback_content( $attributes, $innerblocks ){
-    return '<div class="block-content">' . $innerblocks . '</div>';
+    return '<div class="block__content  description">' . $innerblocks . '</div>';
 }
 
 function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore

@@ -22,7 +22,8 @@ const TEMPLATE = [
 	],
 	[ 
 		'cgb/block-wtp-plugin-block-content', {}, [
-			[ 'core/heading', { placeholder: 'This is the title' } ],
+			[ 'core/heading', { placeholder: 'This is the title', level: 1 } ],
+			[ 'core/heading', { placeholder: 'This is the subtitle', level: 2 } ],
 			[ 'core/paragraph', { placeholder: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr...' } ],
 			[ 'core/button' ],
 	]
