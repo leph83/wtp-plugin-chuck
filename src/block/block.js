@@ -67,6 +67,9 @@ registerBlockType( 'cgb/block-wtp-plugin-block', {
 		__( 'CGB Example' ),
 		__( 'create-guten-block' ),
 	],
+	supports: { // Hey WP, I want to use your alignment toolbar!
+		align: true,
+	},
 
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.

@@ -32,7 +32,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Output Block
 function wtp_render_callback( $attributes, $innerblocks ){
 	$class = $attributes['className'] ?? false;
-    return '<div class="block  '.$class.'">' . $innerblocks . '</div>';
+	$align = $attributes['align'] ?? false;
+	$class_align = '';
+
+	switch ($align) {
+		case 'wide':
+			$class_align = 'lc  lc--1';
+			break;
+		case 'full':
+			break;
+		default:
+			$class_align = 'lc  lc--2';
+			break;
+	}
+
+
+    return '<div class="block  ' . $class . ' ' . $class_align .'">' . $innerblocks . '</div>';
 }
 
 // Output Block Media
