@@ -1,5 +1,5 @@
 /**
- * BLOCK: wtp-plugin-block
+ * BLOCK: wtp-plugin-block-description
  *
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
@@ -12,37 +12,11 @@ import { InnerBlocks } from '@wordpress/block-editor';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
+// const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
 
-const TEMPLATE = [ 
-	[ 
-		'cgb/block-wtp-plugin-block-media', {}, [
-			[ 'core/image' ]
-		]
-	],
-	[
-		'cgb/block-wtp-plugin-block-content', {}, [
-			[ 
-				'cgb/block-wtp-plugin-block-heading', {}, [
-					[ 'core/heading', { placeholder: 'This is the title', level: 1 } ],
-					[ 'core/heading', { placeholder: 'This is the subtitle', level: 2 } ],
-				],
-			],
-			[ 
-				'cgb/block-wtp-plugin-block-description', {}, [
-					[ 'core/paragraph', { placeholder: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr...' } ],
-				],
-			],
-			[ 
-				'cgb/block-wtp-plugin-block-links', {}, [
-					[ 'core/button' ],
-				],
-			],
-		],
-	],
-];
-
-
+// const TEMPLATE = [ 
+// 	[ 'core/paragraph', { placeholder: 'Enter side content...' } ]
+// ];
 
 /**
  * Register: aa Gutenberg Block.
@@ -57,16 +31,17 @@ const TEMPLATE = [
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'cgb/block-wtp-plugin-block', {
+registerBlockType( 'cgb/block-wtp-plugin-block-description', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'wtp-plugin-block - CGB Block' ), // Block title.
-	icon: 'welcome-widgets-menus', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	title: __( 'wtp-plugin-block-description - CGB Block' ), // Block title.
+	icon: 'format-aside', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'wtp-plugin-block — CGB Block' ),
+		__( 'wtp-plugin-block-description — CGB Block' ),
 		__( 'CGB Example' ),
 		__( 'create-guten-block' ),
 	],
+	parent: ['cgb/block-wtp-plugin-block'],
 
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.
@@ -80,13 +55,13 @@ registerBlockType( 'cgb/block-wtp-plugin-block', {
 	 * @returns {Mixed} JSX Component.
 	 */
 	edit: ( props ) => {
-		// Creates a <p class='wp-block-cgb-block-wtp-plugin-block'></p>.
+		// Creates a <p class='wp-block-cgb-block-wtp-plugin-block-description'></p>.
 		return (
 			<div className={ props.className }>
 				<InnerBlocks
-					template={ TEMPLATE }
-					templateLock='all'
+					// template={ TEMPLATE }
 					// allowedBlocks={ ALLOWED_BLOCKS }
+					templateLock={false}
 				/>
 			</div>
 		);

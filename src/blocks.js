@@ -10,5 +10,8 @@
  */
 
 import './block/block.js';
-import './block-media/block.js';
-import './block-content/block.js';
+    import './block-media/block.js';
+    import './block-content/block.js';
+        import './block-heading/block.js';
+        import './block-description/block.js';
+        import './block-links/block.js';

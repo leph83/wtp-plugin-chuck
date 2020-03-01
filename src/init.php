@@ -29,19 +29,40 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 
 
-// Output
+// Output Block
 function wtp_render_callback( $attributes, $innerblocks ){
 	$class = $attributes['className'] ?? false;
     return '<div class="block  '.$class.'">' . $innerblocks . '</div>';
 }
 
+// Output Block Media
 function wtp_render_callback_media( $attributes, $innerblocks ){
     return '<div class="block__media">' . $innerblocks . '</div>';
 }
 
+// Output Block Content
 function wtp_render_callback_content( $attributes, $innerblocks ){
-    return '<div class="block__content  description">' . $innerblocks . '</div>';
+    return '<div class="block__content">' . $innerblocks . '</div>';
 }
+
+// Output Block Heading
+function wtp_render_callback_heading( $attributes, $innerblocks ){
+	$class = $attributes['className'] ?? false;
+    return '<header class="block__heading">' . $innerblocks . '</header>';
+}
+
+// Output Block Description
+function wtp_render_callback_description( $attributes, $innerblocks ){
+	$class = $attributes['className'] ?? false;
+    return '<div class="block__description  description">' . $innerblocks . '</div>';
+}
+
+// Output Block Links
+function wtp_render_callback_links( $attributes, $innerblocks ){
+	$class = $attributes['className'] ?? false;
+    return '<div class="block__links">' . $innerblocks . '</div>';
+}
+
 
 function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 	// Register block styles for both frontend + backend.
@@ -92,6 +113,8 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 	 * @link https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type#enqueuing-block-scripts
 	 * @since 1.16.0
 	 */
+
+	 // block
 	register_block_type(
 		'cgb/block-wtp-plugin-block', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
@@ -105,6 +128,7 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 		)
 	);
 
+	// block media
 	register_block_type(
 		'cgb/block-wtp-plugin-block-media', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
@@ -118,6 +142,7 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 		)
 	);
 
+	// block content
 	register_block_type(
 		'cgb/block-wtp-plugin-block-content', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
@@ -128,6 +153,48 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 			'editor_style'  => 'wtp_plugin_block-content-cgb-block-editor-css',
 			// Render Callback
 			'render_callback' => 'wtp_render_callback_content',
+		)
+	);
+
+	// block heading
+	register_block_type(
+		'cgb/block-wtp-plugin-block-heading', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'wtp_plugin_block-heading-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'wtp_plugin_block-heading-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'wtp_plugin_block-heading-cgb-block-editor-css',
+			// Render Callback
+			'render_callback' => 'wtp_render_callback_heading',
+		)
+	);
+
+	// block description
+	register_block_type(
+		'cgb/block-wtp-plugin-block-description', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'wtp_plugin_block-description-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'wtp_plugin_block-description-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'wtp_plugin_block-description-cgb-block-editor-css',
+			// Render Callback
+			'render_callback' => 'wtp_render_callback_description',
+		)
+	);
+
+	// block links
+	register_block_type(
+		'cgb/block-wtp-plugin-block-links', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'wtp_plugin_block-links-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'wtp_plugin_block-links-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'wtp_plugin_block-links-cgb-block-editor-css',
+			// Render Callback
+			'render_callback' => 'wtp_render_callback_links',
 		)
 	);
 }
