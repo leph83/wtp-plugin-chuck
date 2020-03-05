@@ -96,7 +96,7 @@ function wtp_render_callback_section( $attributes, $innerblocks ){
 	}
 
 
-    return '<div class="section">' . $innerblocks . '</div>';
+    return '<div class="section '.$class_align.'">' . $innerblocks . '</div>';
 }
 
 function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
