@@ -61,7 +61,7 @@ registerBlockType( 'cgb/block-wtp-plugin-block-heading', {
 				<InnerBlocks
 					// template={ TEMPLATE }
 					allowedBlocks={ ALLOWED_BLOCKS }
-					templateLock={true}
+					templateLock='all'
 				/>
 			</div>
 		);
