@@ -78,6 +78,26 @@ function wtp_render_callback_links( $attributes, $innerblocks ){
     return '<div class="block__links">' . $innerblocks . '</div>';
 }
 
+// Output Block Section
+function wtp_render_callback_section( $attributes, $innerblocks ){
+	$class = $attributes['className'] ?? false;
+	$align = $attributes['align'] ?? false;
+	$class_align = '';
+
+	switch ($align) {
+		case 'wide':
+			$class_align = 'lc  lc--1';
+			break;
+		case 'full':
+			break;
+		default:
+			$class_align = 'lc  lc--2';
+			break;
+	}
+
+
+    return '<div class="section">' . $innerblocks . '</div>';
+}
 
 function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 	// Register block styles for both frontend + backend.
@@ -210,6 +230,20 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 			'editor_style'  => 'wtp_plugin_block-links-cgb-block-editor-css',
 			// Render Callback
 			'render_callback' => 'wtp_render_callback_links',
+		)
+	);
+
+	// block section
+	register_block_type(
+		'cgb/block-wtp-plugin-block-section', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'wtp_plugin_block-links-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'wtp_plugin_block-links-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'wtp_plugin_block-links-cgb-block-editor-css',
+			// Render Callback
+			'render_callback' => 'wtp_render_callback_section',
 		)
 	);
 }

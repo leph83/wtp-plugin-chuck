@@ -15,3 +15,4 @@ import './block/block.js';
         import './block-heading/block.js';
         import './block-description/block.js';
         import './block-links/block.js';
+import './section/block.js';
