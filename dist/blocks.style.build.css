@@ -9,10 +9,6 @@
  *
  * CSS for both Frontend+Backend.
  */
-.block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: green; }
 /**
  * #.# Common SCSS
  *
@@ -20,7 +16,7 @@
  * that are used across the project.
 */
 /**
- * #.# Styles
+ * #.# Styles Block Media
  *
  * CSS for both Frontend+Backend.
  */
@@ -31,7 +27,7 @@
  * that are used across the project.
 */
 /**
- * #.# Styles
+ * #.# Styles Block Content
  *
  * CSS for both Frontend+Backend.
  */
@@ -42,7 +38,7 @@
  * that are used across the project.
 */
 /**
- * #.# Styles
+ * #.# Styles Block Heading
  *
  * CSS for both Frontend+Backend.
  */
@@ -53,7 +49,7 @@
  * that are used across the project.
 */
 /**
- * #.# Styles
+ * #.# Styles Block Description
  *
  * CSS for both Frontend+Backend.
  */
@@ -64,7 +60,7 @@
  * that are used across the project.
 */
 /**
- * #.# Styles
+ * #.# Styles Block Links
  *
  * CSS for both Frontend+Backend.
  */
@@ -75,11 +71,7 @@
  * that are used across the project.
 */
 /**
- * #.# Styles
+ * #.# Styles Section
  *
  * CSS for both Frontend+Backend.
  */
-.block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: green; }

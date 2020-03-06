@@ -117,13 +117,9 @@ function wtp_block_assets() { // phpcs:ignore
 	 // block
 	 register_block_type(
 		'wtp/block', array(
-			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'wtp_style-css',
-			// Enqueue blocks.build.js in the editor only.
+			// 'style'         => 'wtp_style-css',
+			// 'editor_style'  => 'wtp_block-editor-css',
 			'editor_script' => 'wtp_block-js',
-			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'wtp_block-editor-css',
-			// Render Callback
 			'render_callback' => 'wtp_render_callback_block',
 		)
 	);
@@ -131,13 +127,9 @@ function wtp_block_assets() { // phpcs:ignore
 	// block media
 	register_block_type(
 		'wtp/block-media', array(
-			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'wtp_plugin_block-media-cgb-style-css',
-			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'wtp_plugin_block-media-cgb-block-js',
-			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'wtp_plugin_block-media-cgb-block-editor-css',
-			// Render Callback
+			// 'style'         => 'wtp_block-media-style-css',
+			// 'editor_style'  => 'wtp_block-media-editor-css',
+			'editor_script' => 'wtp_block-media-js',
 			'render_callback' => 'wtp_render_callback_block_media',
 		)
 	);
@@ -145,13 +137,9 @@ function wtp_block_assets() { // phpcs:ignore
 	// block content
 	register_block_type(
 		'wtp/block-content', array(
-			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'wtp_plugin_block-content-cgb-style-css',
-			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'wtp_plugin_block-content-cgb-block-js',
-			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'wtp_plugin_block-content-cgb-block-editor-css',
-			// Render Callback
+			// 'style'         => 'wtp_block-content-style-css',
+			// 'editor_style'  => 'wtp_block-content-editor-css',
+			'editor_script' => 'wtp_block-content-js',
 			'render_callback' => 'wtp_render_callback_block_content',
 		)
 	);
@@ -159,13 +147,9 @@ function wtp_block_assets() { // phpcs:ignore
 	// block heading
 	register_block_type(
 		'wtp/block-heading', array(
-			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'wtp_plugin_block-heading-cgb-style-css',
-			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'wtp_plugin_block-heading-cgb-block-js',
-			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'wtp_plugin_block-heading-cgb-block-editor-css',
-			// Render Callback
+			// 'style'         => 'wtp_block-heading-style-css',
+			// 'editor_style'  => 'wtp_block-heading-editor-css',
+			'editor_script' => 'wtp_block-heading-js',
 			'render_callback' => 'wtp_render_callback_block_heading',
 		)
 	);
@@ -173,13 +157,9 @@ function wtp_block_assets() { // phpcs:ignore
 	// block description
 	register_block_type(
 		'wtp/block-description', array(
-			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'wtp_plugin_block-description-cgb-style-css',
-			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'wtp_plugin_block-description-cgb-block-js',
-			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'wtp_plugin_block-description-cgb-block-editor-css',
-			// Render Callback
+			// 'style'         => 'wtp_block-description-style-css',
+			// 'editor_style'  => 'wtp_block-description-editor-css',
+			'editor_script' => 'wtp_block-description-js',
 			'render_callback' => 'wtp_render_callback_block_description',
 		)
 	);
@@ -187,13 +167,9 @@ function wtp_block_assets() { // phpcs:ignore
 	// block links
 	register_block_type(
 		'wtp/block-links', array(
-			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'wtp_plugin_block-links-cgb-style-css',
-			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'wtp_plugin_block-links-cgb-block-js',
-			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'wtp_plugin_block-links-cgb-block-editor-css',
-			// Render Callback
+			// 'style'         => 'wtp_block-links-style-css',
+			// 'editor_style'  => 'wtp_block-links-editor-css',
+			'editor_script' => 'wtp_block-links-js',
 			'render_callback' => 'wtp_render_callback_block_links',
 		)
 	);
@@ -201,29 +177,15 @@ function wtp_block_assets() { // phpcs:ignore
 	// block section
 	register_block_type(
 		'wtp/section', array(
-			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'wtp_plugin_block-links-cgb-style-css',
-			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'wtp_plugin_block-links-cgb-block-js',
-			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'wtp_plugin_block-links-cgb-block-editor-css',
-			// Render Callback
+			// 'style'         => 'wtp_block-links-style-css',
+			// 'editor_style'  => 'wtp_block-links-editor-css',
+			'editor_script' => 'wtp_block-links-js',
 			'render_callback' => 'wtp_render_callback_section',
 		)
 	);
 
 
 
-
-
-
-	// Register block styles for both frontend + backend.
-	wp_register_style(
-		'wtp_style-css', // Handle.
-		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
-		is_admin() ? array( 'wp-editor' ) : null, // Dependency to include the CSS after it.
-		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
-	);
 
 	// Register block editor script for backend.
 	wp_register_script(
@@ -234,6 +196,14 @@ function wtp_block_assets() { // phpcs:ignore
 		true // Enqueue the script in the footer.
 	);
 
+	// Register block styles for both frontend + backend.
+	wp_register_style(
+		'wtp_style-css', // Handle.
+		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
+		is_admin() ? array( 'wp-editor' ) : null, // Dependency to include the CSS after it.
+		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
+	);
+
 	// Register block editor styles for backend.
 	wp_register_style(
 		'wtp_block-editor-css', // Handle.
@@ -242,14 +212,14 @@ function wtp_block_assets() { // phpcs:ignore
 		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
 	);
 
-	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.
+	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `wtpGlobal` object.
 	wp_localize_script(
 		'wtp_block-js',
-		'cgbGlobal', // Array containing dynamic data for a JS Global.
+		'wtpGlobal', // Array containing dynamic data for a JS Global.
 		[
 			'pluginDirPath' => plugin_dir_path( __DIR__ ),
 			'pluginDirUrl'  => plugin_dir_url( __DIR__ ),
-			// Add more data here that you want to access from `cgbGlobal` object.
+			// Add more data here that you want to access from `wtpGlobal` object.
 		]
 	);
 }
