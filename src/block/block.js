@@ -87,7 +87,7 @@ registerBlockType( 'wtp/block', {
 			<div className={ props.className }>
 				<InnerBlocks
 					template={ TEMPLATE }
-					templateLock='insert'
+					// templateLock='insert'
 				/>
 			</div>
 		);
