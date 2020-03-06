@@ -37,12 +37,12 @@ function wtp_render_callback( $attributes, $innerblocks ){
 
 	switch ($align) {
 		case 'wide':
-			$class_align = 'lc  lc--1';
+			$class_align = 'lc  lc--2';
 			break;
 		case 'full':
 			break;
 		default:
-			$class_align = 'lc  lc--2';
+			$class_align = 'lc  lc--3';
 			break;
 	}
 

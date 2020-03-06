@@ -40,9 +40,9 @@ const TEMPLATE = [
  */
 registerBlockType( 'cgb/block-wtp-plugin-block-section', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'wtp-plugin-block - CGB Section' ), // Block title.
-	icon: 'welcome-widgets-menus', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
-	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
+	title: __( 'WTP Section' ), // Block title.
+	icon: 'editor-kitchensink', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	category: 'layout', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
 		__( 'wtp-plugin-block — CGB Section' ),
 		__( 'CGB Example' ),
