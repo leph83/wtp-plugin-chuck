@@ -15,7 +15,7 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
 const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
 
 const TEMPLATE = [ 
-	[ 'core/paragraph', { placeholder: 'Enter side content...' } ]
+	[ 'core/paragraph', { placeholder: 'Enter content...' } ]
 ];
 
 /**
@@ -31,17 +31,14 @@ const TEMPLATE = [
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'cgb/block-wtp-plugin-block-content', {
+registerBlockType( 'wtp/block-content', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'Content' ), // Block title.
 	icon: 'welcome-write-blog', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'wtp-plugin-block-content — CGB Block' ),
-		__( 'CGB Example' ),
-		__( 'create-guten-block' ),
+		__( 'wtp' ),
 	],
-	parent: ['cgb/block-wtp-plugin-block'],
 
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.

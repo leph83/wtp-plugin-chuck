@@ -15,12 +15,6 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
 // const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
 
 const TEMPLATE = [ 
-	[ 
-
-	],
-	[
-
-	],
 ];
 
 
@@ -38,15 +32,14 @@ const TEMPLATE = [
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'cgb/block-wtp-plugin-block-section', {
+registerBlockType( 'wtp/section', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'WTP Section' ), // Block title.
-	icon: 'editor-kitchensink', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	icon: 'layout', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'layout', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'wtp-plugin-block — CGB Section' ),
-		__( 'CGB Example' ),
-		__( 'create-guten-block' ),
+		__( 'WTP' ),
+		__( 'Section' ),
 	],
 	supports: { // Hey WP, I want to use your alignment toolbar!
 		align: true,

@@ -30,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // Output Block
-function wtp_render_callback( $attributes, $innerblocks ){
+function wtp_render_callback_block( $attributes, $innerblocks ){
 	$class = $attributes['className'] ?? false;
 	$align = $attributes['align'] ?? false;
 	$class_align = '';
@@ -51,29 +51,29 @@ function wtp_render_callback( $attributes, $innerblocks ){
 }
 
 // Output Block Media
-function wtp_render_callback_media( $attributes, $innerblocks ){
+function wtp_render_callback_block_media( $attributes, $innerblocks ){
     return '<div class="block__media">' . $innerblocks . '</div>';
 }
 
 // Output Block Content
-function wtp_render_callback_content( $attributes, $innerblocks ){
+function wtp_render_callback_block_content( $attributes, $innerblocks ){
     return '<div class="block__content">' . $innerblocks . '</div>';
 }
 
 // Output Block Heading
-function wtp_render_callback_heading( $attributes, $innerblocks ){
+function wtp_render_callback_block_heading( $attributes, $innerblocks ){
 	$class = $attributes['className'] ?? false;
     return '<header class="block__heading">' . $innerblocks . '</header>';
 }
 
 // Output Block Description
-function wtp_render_callback_description( $attributes, $innerblocks ){
+function wtp_render_callback_block_description( $attributes, $innerblocks ){
 	$class = $attributes['className'] ?? false;
     return '<div class="block__description  description">' . $innerblocks . '</div>';
 }
 
 // Output Block Links
-function wtp_render_callback_links( $attributes, $innerblocks ){
+function wtp_render_callback_block_links( $attributes, $innerblocks ){
 	$class = $attributes['className'] ?? false;
     return '<div class="block__links">' . $innerblocks . '</div>';
 }
@@ -99,42 +99,7 @@ function wtp_render_callback_section( $attributes, $innerblocks ){
     return '<div class="section '.$class_align.'">' . $innerblocks . '</div>';
 }
 
-function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
-	// Register block styles for both frontend + backend.
-	wp_register_style(
-		'wtp_plugin_block-cgb-style-css', // Handle.
-		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
-		is_admin() ? array( 'wp-editor' ) : null, // Dependency to include the CSS after it.
-		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
-	);
-
-	// Register block editor script for backend.
-	wp_register_script(
-		'wtp_plugin_block-cgb-block-js', // Handle.
-		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
-		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
-		null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
-		true // Enqueue the script in the footer.
-	);
-
-	// Register block editor styles for backend.
-	wp_register_style(
-		'wtp_plugin_block-cgb-block-editor-css', // Handle.
-		plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
-		array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
-		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
-	);
-
-	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.
-	wp_localize_script(
-		'wtp_plugin_block-cgb-block-js',
-		'cgbGlobal', // Array containing dynamic data for a JS Global.
-		[
-			'pluginDirPath' => plugin_dir_path( __DIR__ ),
-			'pluginDirUrl'  => plugin_dir_url( __DIR__ ),
-			// Add more data here that you want to access from `cgbGlobal` object.
-		]
-	);
+function wtp_block_assets() { // phpcs:ignore
 
 	/**
 	 * Register Gutenberg block on server-side.
@@ -150,22 +115,22 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 	 */
 
 	 // block
-	register_block_type(
-		'cgb/block-wtp-plugin-block', array(
+	 register_block_type(
+		'wtp/block', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'wtp_plugin_block-cgb-style-css',
+			'style'         => 'wtp_style-css',
 			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'wtp_plugin_block-cgb-block-js',
+			'editor_script' => 'wtp_block-js',
 			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'wtp_plugin_block-cgb-block-editor-css',
+			'editor_style'  => 'wtp_block-editor-css',
 			// Render Callback
-			'render_callback' => 'wtp_render_callback',
+			'render_callback' => 'wtp_render_callback_block',
 		)
 	);
 
 	// block media
 	register_block_type(
-		'cgb/block-wtp-plugin-block-media', array(
+		'wtp/block-media', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'         => 'wtp_plugin_block-media-cgb-style-css',
 			// Enqueue blocks.build.js in the editor only.
@@ -173,13 +138,13 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'wtp_plugin_block-media-cgb-block-editor-css',
 			// Render Callback
-			'render_callback' => 'wtp_render_callback_media',
+			'render_callback' => 'wtp_render_callback_block_media',
 		)
 	);
 
 	// block content
 	register_block_type(
-		'cgb/block-wtp-plugin-block-content', array(
+		'wtp/block-content', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'         => 'wtp_plugin_block-content-cgb-style-css',
 			// Enqueue blocks.build.js in the editor only.
@@ -187,13 +152,13 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'wtp_plugin_block-content-cgb-block-editor-css',
 			// Render Callback
-			'render_callback' => 'wtp_render_callback_content',
+			'render_callback' => 'wtp_render_callback_block_content',
 		)
 	);
 
 	// block heading
 	register_block_type(
-		'cgb/block-wtp-plugin-block-heading', array(
+		'wtp/block-heading', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'         => 'wtp_plugin_block-heading-cgb-style-css',
 			// Enqueue blocks.build.js in the editor only.
@@ -201,13 +166,13 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'wtp_plugin_block-heading-cgb-block-editor-css',
 			// Render Callback
-			'render_callback' => 'wtp_render_callback_heading',
+			'render_callback' => 'wtp_render_callback_block_heading',
 		)
 	);
 
 	// block description
 	register_block_type(
-		'cgb/block-wtp-plugin-block-description', array(
+		'wtp/block-description', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'         => 'wtp_plugin_block-description-cgb-style-css',
 			// Enqueue blocks.build.js in the editor only.
@@ -215,13 +180,13 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'wtp_plugin_block-description-cgb-block-editor-css',
 			// Render Callback
-			'render_callback' => 'wtp_render_callback_description',
+			'render_callback' => 'wtp_render_callback_block_description',
 		)
 	);
 
 	// block links
 	register_block_type(
-		'cgb/block-wtp-plugin-block-links', array(
+		'wtp/block-links', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'         => 'wtp_plugin_block-links-cgb-style-css',
 			// Enqueue blocks.build.js in the editor only.
@@ -229,13 +194,13 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'wtp_plugin_block-links-cgb-block-editor-css',
 			// Render Callback
-			'render_callback' => 'wtp_render_callback_links',
+			'render_callback' => 'wtp_render_callback_block_links',
 		)
 	);
 
 	// block section
 	register_block_type(
-		'cgb/block-wtp-plugin-block-section', array(
+		'wtp/section', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
 			'style'         => 'wtp_plugin_block-links-cgb-style-css',
 			// Enqueue blocks.build.js in the editor only.
@@ -246,9 +211,50 @@ function wtp_plugin_block_cgb_block_assets() { // phpcs:ignore
 			'render_callback' => 'wtp_render_callback_section',
 		)
 	);
+
+
+
+
+
+
+	// Register block styles for both frontend + backend.
+	wp_register_style(
+		'wtp_style-css', // Handle.
+		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
+		is_admin() ? array( 'wp-editor' ) : null, // Dependency to include the CSS after it.
+		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
+	);
+
+	// Register block editor script for backend.
+	wp_register_script(
+		'wtp_block-js', // Handle.
+		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
+		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
+		null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
+		true // Enqueue the script in the footer.
+	);
+
+	// Register block editor styles for backend.
+	wp_register_style(
+		'wtp_block-editor-css', // Handle.
+		plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
+		array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
+		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
+	);
+
+	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.
+	wp_localize_script(
+		'wtp_block-js',
+		'cgbGlobal', // Array containing dynamic data for a JS Global.
+		[
+			'pluginDirPath' => plugin_dir_path( __DIR__ ),
+			'pluginDirUrl'  => plugin_dir_url( __DIR__ ),
+			// Add more data here that you want to access from `cgbGlobal` object.
+		]
+	);
 }
 
 
 
 // Hook: Block assets.
-add_action( 'init', 'wtp_plugin_block_cgb_block_assets' );
+add_action( 'init', 'wtp_block_assets' );

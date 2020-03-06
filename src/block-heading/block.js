@@ -31,17 +31,16 @@ const ALLOWED_BLOCKS = [ 'core/heading' ];
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'cgb/block-wtp-plugin-block-heading', {
+registerBlockType( 'wtp/block-heading', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'Header' ), // Block title.
 	icon: 'minus', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'wtp-plugin-block-heading — CGB Block' ),
-		__( 'CGB Example' ),
-		__( 'create-guten-block' ),
+		__( 'wtp' ),
+		__( 'heading' ),
 	],
-	parent: ['cgb/block-wtp-plugin-block'],
+	// parent: ['cgb/block-wtp-plugin-block'],
 
 	/**
 	 * The edit function describes the structure of your block in the context of the editor.

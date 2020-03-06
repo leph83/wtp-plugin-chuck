@@ -16,25 +16,25 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
 
 const TEMPLATE = [ 
 	[ 
-		'cgb/block-wtp-plugin-block-media', {}, [
+		'wtp/block-media', {}, [
 			[ 'core/image' ]
 		]
 	],
 	[
-		'cgb/block-wtp-plugin-block-content', {}, [
+		'wtp/block-content', {}, [
 			[ 
-				'cgb/block-wtp-plugin-block-heading', {}, [
+				'wtp/block-heading', {}, [
 					[ 'core/heading', { placeholder: 'This is the title', level: 1 } ],
 					[ 'core/heading', { placeholder: 'This is the subtitle', level: 2 } ],
 				],
 			],
 			[ 
-				'cgb/block-wtp-plugin-block-description', {}, [
+				'wtp/block-description', {}, [
 					[ 'core/paragraph', { placeholder: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr...' } ],
 				],
 			],
 			[ 
-				'cgb/block-wtp-plugin-block-links', {}, [
+				'wtp/block-links', {}, [
 					[ 'core/button' ],
 				],
 			],
@@ -57,15 +57,14 @@ const TEMPLATE = [
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'cgb/block-wtp-plugin-block', {
+registerBlockType( 'wtp/block', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'WTP - Block' ), // Block title.
 	icon: 'grid-view', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'wtp-plugin-block — CGB Block' ),
-		__( 'CGB Example' ),
-		__( 'create-guten-block' ),
+		__( 'WTP' ),
+		__( 'Block' ),
 	],
 	supports: { // Hey WP, I want to use your alignment toolbar!
 		align: true,
