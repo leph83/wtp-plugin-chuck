@@ -86,17 +86,17 @@ function wtp_render_callback_section( $attributes, $innerblocks ){
 
 	switch ($align) {
 		case 'wide':
-			$class_align = 'lc  lc--1';
+			$class_align = 'lc  lc--2';
 			break;
 		case 'full':
 			break;
 		default:
-			$class_align = 'lc  lc--2';
+			$class_align = 'lc  lc--3';
 			break;
 	}
 
 
-    return '<div class="section '.$class_align.'">' . $innerblocks . '</div>';
+    return '<div class="section '.$class_align. ' ' .$class. '">' . $innerblocks . '</div>';
 }
 
 function wtp_block_assets() { // phpcs:ignore

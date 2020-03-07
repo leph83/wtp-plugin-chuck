@@ -24,8 +24,7 @@ const TEMPLATE = [
 		'wtp/block-content', {}, [
 			[ 
 				'wtp/block-heading', {}, [
-					[ 'core/heading', { placeholder: 'This is the title', level: 1 } ],
-					[ 'core/heading', { placeholder: 'This is the subtitle', level: 2 } ],
+					[ 'core/heading', { level: 1 } ],
 				],
 			],
 			[ 

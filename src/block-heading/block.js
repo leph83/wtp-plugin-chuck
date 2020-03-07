@@ -60,7 +60,7 @@ registerBlockType( 'wtp/block-heading', {
 				<InnerBlocks
 					// template={ TEMPLATE }
 					allowedBlocks={ ALLOWED_BLOCKS }
-					templateLock='all'
+					// templateLock='all'
 				/>
 			</div>
 		);
