@@ -67,7 +67,7 @@ registerBlockType( 'wtp/block-media', {
 				<InnerBlocks
 					// template={ TEMPLATE }
 					allowedBlocks={ ALLOWED_BLOCKS }
-					templateLock={false}
+					templateLock="insert"
 				/>
 			</div>
 		);
