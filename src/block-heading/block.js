@@ -33,7 +33,7 @@ const ALLOWED_BLOCKS = [ 'core/heading' ];
  */
 registerBlockType( 'wtp/block-heading', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Header' ), // Block title.
+	title: __( 'WTP Header' ), // Block title.
 	icon: 'minus', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [

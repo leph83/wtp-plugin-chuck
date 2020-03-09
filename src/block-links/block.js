@@ -33,7 +33,7 @@ const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.b
  */
 registerBlockType( 'wtp/block-links', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Links' ), // Block title.
+	title: __( 'WTP Links' ), // Block title.
 	icon: 'admin-links', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
