@@ -14,30 +14,40 @@ const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 // const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
 
+// const TEMPLATE = [ 
+// 	[ 
+// 		'wtp/block-media', {}, [
+// 			[ 'core/image' ]
+// 		]
+// 	],
+// 	[
+// 		'wtp/block-content', {}, [
+// 			[ 
+// 				'wtp/block-heading', {}, [
+// 					[ 'core/heading', { level: 1 } ],
+// 				],
+// 			],
+// 			[ 
+// 				'wtp/block-description', {}, [
+// 					[ 'core/paragraph', { placeholder: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr...' } ],
+// 				],
+// 			],
+// 			[ 
+// 				'wtp/block-links', {}, [
+// 					[ 'core/button' ],
+// 				],
+// 			],
+// 		],
+// 	],
+// ];
+
+
 const TEMPLATE = [ 
 	[ 
-		'wtp/block-media', {}, [
-			[ 'core/image' ]
-		]
+		'wtp/block-media', {}, []
 	],
 	[
-		'wtp/block-content', {}, [
-			[ 
-				'wtp/block-heading', {}, [
-					[ 'core/heading', { level: 1 } ],
-				],
-			],
-			[ 
-				'wtp/block-description', {}, [
-					[ 'core/paragraph', { placeholder: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr...' } ],
-				],
-			],
-			[ 
-				'wtp/block-links', {}, [
-					[ 'core/button' ],
-				],
-			],
-		],
+		'wtp/block-content', {}, []
 	],
 ];
 
@@ -86,7 +96,7 @@ registerBlockType( 'wtp/block', {
 			<div className={ props.className }>
 				<InnerBlocks
 					template={ TEMPLATE }
-					// templateLock='insert'
+					templateLock='insert'
 				/>
 			</div>
 		);

@@ -12,7 +12,15 @@ import { InnerBlocks } from '@wordpress/block-editor';
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
-const ALLOWED_BLOCKS = [ 'core/image', 'core/paragraph' ];
+const ALLOWED_BLOCKS = [ 
+	'core/image', 
+	'core/cover',
+	'core/embed',
+	'core/gallery',
+	'core/separator',
+	'core/spacer',
+	'core/video'
+];
 
 const TEMPLATE = [ 
 	[ 'core/paragraph', { placeholder: 'Enter content...' } ]
@@ -57,7 +65,7 @@ registerBlockType( 'wtp/block-content', {
 			<div className={ props.className }>
 				<InnerBlocks
 					// template={ TEMPLATE }
-					// allowedBlocks={ ALLOWED_BLOCKS }
+					allowedBlocks={ ALLOWED_BLOCKS }
 					templateLock={false}
 				/>
 			</div>
