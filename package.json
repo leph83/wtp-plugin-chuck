@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "cgb-scripts": "1.23.0",
-    "npm": "^6.14.2"
+    "npm": "^6.14.6"
   }
 }
